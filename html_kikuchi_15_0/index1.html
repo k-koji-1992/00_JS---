@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-size: 32px;
+            width: 1200px;
+            background-color: rgb(244, 189, 137);
+            margin: auto;
+            border-left: #222;
+            border-right: #222;
+
+        }
+
+
+
+        .header {
+            width: 1200px;
+            height: 171px;
+            display: flex;
+            background-color: rgb(247, 132, 66);
+            color: red;
+            margin-bottom: 100px;
+
+        }
+
+        nav {
+            margin-left: auto;
+            font-size: 21px;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            padding: 50px 25px;
+
+            height: 71px;
+
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            text-align: center
+        }
+
+        a {
+            padding-top: 100px;
+            margin-top: 100px;
+            color: white;
+            text-decoration: none;
+            text-align: center
+        }
+
+        h2 {
+            font-size: 20;
+            text-align: center;
+            color: rgb(183, 50, 50);
+
+        }
+
+        #orderSelect {
+            display: block;
+            width: 200px;
+            height: 100px;
+            margin: 0;
+            padding: 8px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 32px;
+            background-color: #fff;
+            box-shadow: none;
+            cursor: pointer;
+            align-items: center;
+        }
+
+        .section-title {
+            text-align: center;
+            display: block;
+            margin: 24px 0 0;
+            color: #222;
+            font-size: 40px;
+            font-weight: bold;
+            margin: auto
+        }
+
+        .form {
+            width: 640px;
+            margin: auto;
+            font-size: 32px;
+        }
+
+        .form-list {
+
+            margin-bottom: 30px;
+            padding-left: 0;
+            list-style: none;
+            font-size: 32px;
+        }
+
+        .form-item {
+            display: flex;
+            align-items: center;
+            margin: 0 0 24px;
+            font-size: 32px;
+        }
+
+        .form-item__radio {
+            align-items: flex-start;
+            margin: 40px 0 32px;
+            font-size: 32px;
+
+        }
+
+        .form-item__textarea {
+            align-items: flex-start;
+            margin: 0 0 40px;
+            font-size: 24px;
+        }
+
+        .form-label {
+            box-sizing: border-box;
+            display: block;
+            flex: 0 0 250px;
+            width: 200px;
+            margin: 0 24px 0 0;
+            text-align: right;
+            font-weight: bold;
+            font-size: 28px;
+        }
+
+        .form-label__textarea {
+            padding-top: 16px;
+            font-size: 32px;
+        }
+
+        .form-detail {
+            vertical-align: middle;
+            font-size: 32px;
+        }
+
+        .form-parts {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 600px;
+            padding: 8px 8px;
+            border: solid 1px #AAAAAA;
+            border-radius: 0;
+            vertical-align: top;
+            font-size: 1.6rem;
+            box-sizing: border-box;
+            font-size: 24px;
+        }
+
+
+
+        .btn-outer {
+            margin: 0;
+            text-align: center;
+        }
+
+        .btn {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            display: block;
+            width: 264px;
+            margin: 0 auto;
+            padding: 22px 0;
+            border-radius: 0;
+            background-color: #ffd61a;
+            color: #fff;
+            font-size: 1.6rem;
+            text-align: center;
+            line-height: 1;
+            text-decoration: none;
+        }
+
+        .btn-submit {
+            border: none;
+            width: 298px;
+            padding: 18px 0;
+            margin-bottom: 100px;
+            font-size: 1.8rem;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .footer {
+            padding: 32px 0;
+            background: rgb(247, 132, 66);
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        p {
+            background-color: #fff;
+            font-size: 20px;
+            padding-left: 30px;
+            padding-top: 30px;
+            font-weight: bold;
+        }
+
+        button.remove {
+            font-size: 20px;
+            /* display: block; */
+            /* text-align: center;
+            vertical-align: middle; */
+            text-decoration: none;
+            width: 120px;
+            /* padding: 1rem 4rem; */
+            font-weight: bold;
+            border: 2px solid #27acd9;
+            color: #27acd9;
+            transition: 0.5s;
+        }
+
+        button.update {
+            font-size: 20px;
+            /* display: block; */
+	text-align: center;
+	text-decoration: none;
+	width: 150px;
+
+	/* padding: 1rem 4rem; */
+	font-weight: bold;
+	border: 2px solid #27acd9;
+	color: #27acd9;
+	transition: 0.5s;
+        }
+
+        button.reply {
+            font-size: 20px;
+            /* display: block; */
+	/* text-align: center; */
+	/* vertical-align: middle; */
+	text-decoration: none;
+	width: 120px;
+	margin: auto;
+    margin-bottom: 20px;
+	/* padding: 1rem 4rem; */
+	font-weight: bold;
+	border: 2px solid #27acd9;
+	color: #27acd9;
+	transition: 0.5s;
+        }
+    </style>
+    <script src="/js/BmapQuery1.js"></script>
+    <title>街なか報告アプリ</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div>
+            <header class="header">
+                <div class="logo">
+                    <img src="./img/logo_02.jpg" alt="">
+
+                </div>
+                <nav>
+                    <ul>
+
+                        <li> <select id="orderSelect" name="select" onChange="location.href=value;">
+                                <option disabled>選択</option>
+                                <option value="./index1.html">
+                                    平常時
+                                </option>
+                                <option value="./map.html">
+                                    非常時
+                                </option>
+
+
+
+                            </select></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+
+        <div>
+
+
+
+        </div>
+
+        <div>
+
+            <!-- MAP[START] -->
+            <div id="myMap" style="width: 100%; height: 700px;"></div>
+            <!-- MAP[END] -->
+        </div>
+        <div id="thread"></div>
+        <div id="response">
+            <section id="contact">
+                <div class="layout-contact">
+                    <h2><span class="section-title">投稿</span></h2>
+
+                    <form action="" class="wrapper">
+                        <div class="form">
+                            <div class="form-list">
+                                <dl class="form-item">
+                                    <dt class="form-label">投稿者：</dt>
+                                    <dd class="form-detail"><input type="text" id="uname" class="form-parts"
+                                            placeholder="名前を書き込んでください">
+                                    </dd>
+                                </dl>
+                                <dl class="form-item">
+                                    <dt for="kana" class="form-label">投稿者の現在地：</dt>
+                                    <dd class="form-detail"><input type="text" id="address1" class="form-parts"
+                                            placeholder="位置情報がここに表示されます" value="">
+                                    </dd>
+                                </dl>
+                                <dl class="form-item">
+                                    <dt class="form-label">聞きたいお店：</dt>
+                                    <dd class="form-detail"><input type="text" id="address2" class="form-parts"
+                                            placeholder="位置情報がここに表示されます" value=""></dd>
+                                </dl>
+
+                                <dl class="form-item form-item__textarea">
+                                    <dt class="form-label form-label__textarea">投稿：</dt>
+                                    <dd class="form-detail">
+                                        <textarea name="" id="text" value="" cols="30" rows="10"
+                                            class="form-parts form-parts__textarea" placeholder="投稿を書き込んでください。
+例1:ここのレストランは年末は何日まで営業していますか？
+例2:ここのラーメン屋は12時頃の行列はどのくらいになりますか？
+
+                                        "></textarea>
+
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <button id="send" class="btn btn-submit">投稿</button>
+
+                    </form>
+                </div>
+            </section>
+
+        </div>
+
+
+        </section>
+        <footer class="footer text-center">
+            <div class="wrapper">
+                <small class="copyrights">copyrights G's Academy All RIghts Reserved.
+                </small>
+            </div>
+        </footer>
+
+
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script
+        src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=[]'
+        async defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/yamazakidaisuke/BmapQuery/js/BmapQuery.js"></script>
+
+
+    <!--** 以下Firebase **-->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        import { getDatabase, ref, push, set, update, onChildAdded, remove, onChildRemoved, onChildChanged }
+            from "https://cdnjs.cloudflare.com/ajax/libs/firebase/10.7.1/firebase-database.js";
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "[]",
+            authDomain: "chat-trial-7029f.firebaseapp.com",
+            projectId: "chat-trial-7029f",
+            storageBucket: "chat-trial-7029f.appspot.com",
+            messagingSenderId: "265048633140",
+            appId: "1:265048633140:web:af568eeb81ba35149e3f61"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        // データベースの参照を作成
+        // RealtimeDBに接続
+        const db = getDatabase(app);
+        // RealtimeDB内の"chat"を使う
+        const dbRef = ref(db, "chat");
+        const repliesRef = ref(db, "replies")
+
+        $("#send").on("click", function () {
+            const uname = $("#uname").val() || "匿名希望";
+            const msg = {
+                uname: uname,
+                text: $("#text").val(),
+                userId: getOrGenerateUserId(), // ユーザーIDを取得または生成
+                address1: $("#address1").val(),
+                address2: $("#address2").val(),
+            };
+
+
+            console.log(msg)
+            const newPostRef = push(ref(db,"chat"));
+
+            // pushできる状態にする
+            set(newPostRef, msg);
+
+            // DBに値を送信
+
+
+            $("#text").val('');
+            // テキストボックス内のテキストをクリア
+            $("#chatContainer").scrollTop($("#chatContainer")[0].scrollHeight);
+            // スクロールを一番下に移動
+
+        });
+        // ランダムなID生成関数
+        function generateRandomId() {
+            return Math.random().toString(36).substring(2, 10);
+        }
+
+        // getOrGenerateUserId 関数の追加
+        function getOrGenerateUserId() {
+            let userId = localStorage.getItem("userId");
+            if (!userId) {
+                userId = generateRandomId();
+                localStorage.setItem("userId", userId);
+            }
+            return userId;
+        }
+
+        let messageCount = 0; // 投稿されたメッセージの数を保持する変数
+        onChildAdded(dbRef, function (data) {
+            console.log(data)
+            const msg = data.val();
+            console.log(data.val)
+            const key = data.key;
+            // 削除・更新に必須
+            var timestamp = new Date().toLocaleString();
+            console.log(msg.address1)
+            let h = '<p id="' + key + '">';
+            h += ++messageCount + ": "; // メッセージ数に応じて番号を追加
+            h += msg.uname;
+            h += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"; // スペースを挿入
+            h += timestamp;
+            h += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"; // スペースを挿入
+            h += "ユーザーID: " + msg.userId; // msgオブジェクトのuserIdを使用
+            h += "<br>"
+            h +=  "現在地:" +msg.address1;
+            h += "<br>"
+            h += "お店:" +msg.address2;
+            h += "<br>"
+            h += '<span contentEditable="true" id="' + key + '_update">' + msg.text + '</span>';
+            h += "<br>"
+            h += '<button class="remove" data-key="' + key + '">削除</button>';
+            h += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"; // スペースを挿入
+            h += '<button class="update" data-key="' + key + '">アップデート</button>';
+            h += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"; // スペースを挿入
+            h += '<button class="reply" data-key="' + key + '""}">返信</button>';
+            h += "</p>";
+            $("#thread").append(h); // #output の最後に追加
+            $("#text").val('');
+        });
+
+        // 削除イベント
+        $("#thread").on("click", ".remove", function () {
+            const key = $(this).attr("data-key")
+            const remove_item = ref(db, "chat/" + key);
+            remove(remove_item);
+            // Firebaseデータ削除関数
+        });
+
+        // 更新イベント
+        $("#thread").on("click", ".update", function () {
+            const key = $(this).attr("data-key")
+            update(ref(db, "chat/" + key), {
+                text: $("#" + key + '_update').text(),
+
+            });
+
+
+        });
+        onChildRemoved(dbRef, (data) => {
+            $("#" + data.key).remove();
+            // DOM操作関数
+        });
+        // 更新処理がFirebase側で実行されたらイベント発生
+        onChildChanged(dbRef, (data) => {
+            $("#" + data.key + '_update').fadeOut(800).fadeIn(800);
+
+        });
+
+        // const repliesRef = ref(db, 'replies/' + data.key);
+        onChildAdded(repliesRef, function (replyData) {
+            const replyMsg = replyData.val();
+
+        });
+
+        // 返信イベント
+        $("#thread").on("click", ".reply", function () {
+            const key = $(this).attr("data-key");
+            const messageNumber = $('#' + key).text().split(":")[0]; // 投稿の番号を取得
+
+            // 返信フォームを表示（リプライ先の番号を自動入力）
+            const replyForm = '<div id="replyForm_' + key + '">'
+                + '<textarea id="replyText_' + key + '">返信先: ' + messageNumber + '</textarea>'
+                + '<button id="sendReply_' + key + '">返信送信</button>'
+                + '</div>';
+            $('#' + key).append(replyForm);
+
+            // 返信送信イベント
+            $('#sendReply_' + key).on('click', function () {
+                const replyText = $('#replyText_' + key).val();
+                // データベースに返信を保存
+                const replyRef = ref(db, 'replies/' + key);
+                push(replyRef, { text: replyText, repliedTo: key });
+
+                // 返信内容をHTMLで表示
+                const replyHTML = '<div class="reply-message">返信内容: ' + replyText + '</div>';
+                $('#' + key).after(replyHTML); // 返信先の投稿の後に返信内容を追加
+                // const replyRef = push(replyRef);
+
+                // pushできる状態にする
+                // set(newPostRef, msg);
+                // 返信フォームを削除
+                $('#replyForm_' + key).remove();
+            });
+        });
+        // 返信に対する返信イベント
+        $("#thread").on("click", ".reply-to-reply", function () {
+            // 返信に対する返信のためのコードをここに記述
+        });
+    </script>
+
+    <!-- Firebaseここまで -->
+
+    <script>
+        // 1．位置情報の取得に成功した時の処理
+        function mapsInit(position) {
+            //lat=緯度、lon=経度 を取得
+            console.log(position);
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            console.log(lat, lon);
+        };
+        //2． 位置情報の取得に失敗した場合の処理
+        function mapsError(error) {
+            let e = "";
+            if (error.code == 1) { //1＝位置情報取得が許可されてない（ブラウザの設定）
+                e = "位置情報が許可されてません";
+            }
+            if (error.code == 2) { //2＝現在地を特定できない
+                e = "現在位置を特定できません";
+            }
+            if (error.code == 3) { //3＝位置情報を取得する前にタイムアウトになった場合
+                e = "位置情報を取得する前にタイムアウトになりました";
+            }
+            alert("エラー：" + e);
+        };
+
+        //3.位置情報取得オプション
+        var where = {
+            enableHighAccuracy: true, //より高精度な位置を求める
+            maximumAge: 20000,        //最後の現在地情報取得が20秒以内であればその情報を再利用する設定
+            timeout: 10000            //10秒以内に現在地情報を取得できなければ、処理を終了
+        };
+
+        //Main:位置情報を取得する処理 //getCurrentPosition :or: watchPosition
+        navigator.geolocation.getCurrentPosition(mapsInit, mapsError, where);
+
+        //Initialization processing
+        let map;
+        function GetMap() {
+
+            //1. Init
+            const map = new Bmap("#myMap");
+
+            //2. geolocation: Display Map
+            //------------------------------------------------------------------------
+            map.geolocation(function (data) {
+                //現在地の取得
+                const lat = data.coords.latitude;
+                const lon = data.coords.longitude;
+                console.log(data)
+                //現在地を中心にしたマップ
+                map.startMap(lat, lon, "load", 15);
+                //現在地のピン
+                const currentLocationPin = map.pin(lat, lon, "#ff0000");
+
+
+                const location = map.setLocation(lat, lon);
+                map.reverseGeocode(location, function (data) {
+                    console.log(data);
+
+                    document.querySelector("#address1").value = data;
+                    // document.querySelector("#geocode1").value = lat + ',' + lon;
+                });
+
+                map.onGeocode("click", function (clickPoint) {
+                    map.reverseGeocode(clickPoint.location, function (data) {
+                        console.log(data);
+                        document.querySelector("#address2").value = data;
+                    });
+                });
+
+
+
+                //B. Get ReverseGeocode of click location
+                map.onGeocode("click", function (data) {
+                    console.log(data);                   //Get Geocode ObjectData
+                    const lat = data.location.latitude;  //Get latitude
+                    const lon = data.location.longitude; //Get longitude
+                    // map.reverseGeocode(clickPoint.location,function(data){
+                    map.reverseGeocode(data)
+                    console.log(data);                   //Get Geocode ObjectData
+
+
+
+
+                    // document.querySelector("#geocode2").value = lat + ',' + lon;
+                    let pin = map.pin(lat, lon, "#0000ff")
+                    // ピンを置く
+                    map.onPin(pin, "click", function () {
+                        map.reverseGeocode({ latitude: lat, longitude: lon }, function (address) {
+                            // 逆ジオコーディングの結果（住所情報）を取得
+                            let title = document.getElementById('uname').value;
+                            let descript = '<div style="width:300px;">住所：</div>' + address; // 住所情報を使用
+
+
+                            const options = [];
+                            options[0] = map.onInfobox(lat, lon, title, descript)
+
+                            map.infoboxLayers(options, true);
+
+
+
+                        });
+
+
+
+
+                    });
+                });
+
+
+
+
+
+
+            });
+
+        }
+
+
+
+    </script>
+
+    <script async>
+        const path = location.pathname;
+        for (let opt of document.getElementById("orderSelect").options) {
+            if (opt.value == path) {
+                opt.selected = true;
+                break;
+            }
+        }
+    </script>
+</body>
+
+</html>
